@@ -13,7 +13,7 @@ const Hero = () => {
     const [passwordArray, setpasswordArray] = useState([])
 
     const getPasswords = async () => {
-        const req = await fetch("https://pass-op-backend-xonh-kd1ftktiv-rajji.vercel.app/");
+        const req = await fetch("https://pass-op-backend-five.vercel.app");
         const data = await req.json();
         setpasswordArray(data);
     }
@@ -52,7 +52,7 @@ const Hero = () => {
             newPassword
         ]);
 
-        await fetch("https://pass-op-backend-xonh-kd1ftktiv-rajji.vercel.app/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(newPassword) });
+        await fetch("https://pass-op-backend-five.vercel.app", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(newPassword) });
 
         setForm({ website: "", username: "", password: "" })
         toast('Saved Successfully!', {
@@ -108,7 +108,7 @@ const Hero = () => {
 
         if (cancel) {
             setpasswordArray(passwordArray.filter(item => item.id !== id))
-            let response = await fetch("https://pass-op-backend-xonh-kd1ftktiv-rajji.vercel.app/", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
+            let response = await fetch("https://pass-op-backend-five.vercel.app", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
             
             toast('Credentials Deleted!', {
                 position: "top-right",
